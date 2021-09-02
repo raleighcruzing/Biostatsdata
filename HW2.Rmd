@@ -1,0 +1,93 @@
+---
+title: "HW2"
+author: "Raleigh Addington"
+date: "9/1/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(psych)
+library(ggplot2)
+```
+
+
+# Homework 2
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Questions 2.1-2.3 
+
+```{r}
+load("/Users/cruzer/Desktop/AUFall2021/Biostats/biosdata/HOSPITAL.DAT.rdata")
+load("/Users/cruzer/Desktop/AUFall2021/Biostats/biosdata/HOSPITAL.DAT.rdata")
+```
+
+
+```{r}
+describe(hospital)
+```
+
+```{r}
+describe(Dur_stay)
+```
+2.1 The mean is 8.6 and the median is 8 for the duration of hospitalization for the 25 patients. 
+2.2 The data presents a standard deviation of 5.72 and a range of 27. 
+
+```{r}
+boxplot(Dur_stay~Antibio, ylab = "Dur_stay", main= "Duration of Stay based on Antibiotic")
+```
+2.3 According to the hospital tables. However, I wonder if the duration of stay is extended for antibiotic users based on treatment. The current box plot shows patients with antibiotics staying slightly longer than those without. Though the outlyers of those without are greater, it is not significant to the difference in mean of with antibiotics = 11.571 and without antibiotics = 7.44. Calculated using mean of subset. 
+
+##Question 2.13-2.17 
+```{r}
+describe(Cholesterol.Revised)
+```
+2.13 The mean change in Cholestrol is the difference mean which equals 19.54; before and after a vegetarian diet. 
+2.14 The sd is 16.81 of the Cholestrol change levels
+
+```{r}
+stem(Cholesterol.Revised$Difference)
+```
+2.15 See above stem and leaf plot
+2.16 Median of Cholesterol is depicted in above describe data: 19.00
+
+```{r}
+boxplot(Cholesterol.Revised$Difference, ylab = "Serum difference (mg/dL)", main=  "Difference between pre/post veg diet on Serum-cholesterol levels")
+```
+
+2.17 Above boxplot depicts the difference between the differences between pre-post vegetarian diets on their Serum-cholesterol. With a min of -13, max of 49 and median of 19 as mentioned in 2.16
+
+##Question 2.31-2.32
+
+```{r}
+prop.table(t)*100
+```
+```{r}
+hist(c$ageyrs)
+```
+```{r}
+hist(e$ageyrs)
+```
+
+
+
+
+
+
+```{r}
+ggplot(ex32data, aes(x = exposure, y = iqv, fill = exposure))+
+  geom_boxplot()
+```
+
+2.32 In the ggplot above which will also be shown as a boxplot below, there is an obviously lower mean and range of the lead exposed group on IQ verbal scores. This means that this higher exposure than the control group did affect their IQ verbal score. 
+
+other graph as done in class
+```{r}
+boxplot(ex32data$iqv ~ ex32data$exposure, ylab = "verbal IQ", xlab = NULL, main= "Verbal IQ vs Lead Exposure")
+```
